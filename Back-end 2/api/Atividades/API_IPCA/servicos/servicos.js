@@ -1,68 +1,67 @@
 import historicoInflacao from '../dados/dados.js'
 
-export const returnAll = () => {
+export const obterTodos = () => {
     return historicoInflacao
 }
 
-export const returnYears = (yearInput) => {
-    parseInt(yearInput, 10)
+export const obterAnos = (anoInput) => {
+    parseInt(anoInput, 10)
 
-    if(yearInput <=2014 || yearInput >= 2025 || isNaN(yearInput)) {
-        console.log('tipo' + typeof(yearInput) + 'sdsa' + typeof(Number))
+    if(anoInput <=2014 || anoInput >= 2025 || isNaN(anoInput)) {
+        console.log('tipo' + typeof(anoInput) + 'sdsa' + typeof(Number))
         return {"erro" : "Nenhum histórico encontrado para o ano especificado."}
     }
 
     else{
-        const allForYear = historicoInflacao.filter(year => (year.ano == yearInput))
-        return allForYear
+        const dadosPorAno = historicoInflacao.filter(ano => (ano.ano == anoInput))
+        return dadosPorAno
     }
 }
 
-export const returnId = (inputId) => {
-    parseInt(inputId, 10)
+export const obterPorId = (idInput) => {
+    parseInt(idInput, 10)
 
-    if(isNaN(inputId)){
+    if(isNaN(idInput)){
         return {"erro" : "Elemento não pode ser uma string."}
     }
     else{
-        const searchId = historicoInflacao.find(id => id.id == inputId)
-        if(!searchId){
+        const buscaId = historicoInflacao.find(id => id.id == idInput)
+        if(!buscaId){
             return {"erro" : "Elemento não encontrado."}
         }
 
-        return searchId       
+        return buscaId       
     }
 
 }
 
-export const returnCalc = (valor, mesInicial, anoInicial, mesFinal, anoFinal) => {
-    if ( isNaN(valor) || isNaN(mesInicial) || isNaN(anoInicial) || isNaN(mesFinal) || isNaN(anoFinal)) {
+export const calcularValor = (valorInicial, mesIni, anoIni, mesFim, anoFim) => {
+    if ( isNaN(valorInicial) || isNaN(mesIni) || isNaN(anoIni) || isNaN(mesFim) || isNaN(anoFim)) {
         return { "erro": "Parâmetros inválidos" };
     }
 
-    let resultado = valor;
-    let initValue = historicoInflacao.find(item => item.ano === anoInicial && item.mes === mesInicial);
+    let resultado = valorInicial;
+    let valorInicio = historicoInflacao.find(item => item.ano === anoIni && item.mes === mesIni);
 
-    if(!initValue){
+    if(!valorInicio){
         return {"erro":"Dados não encontrados para algum período"}
     }
 
-    let currentMes = initValue.mes;
-    let currentAno = initValue.ano;
+    let mesAtual = valorInicio.mes;
+    let anoAtual = valorInicio.ano;
 
-
-    while (currentAno < anoFinal || (currentAno === anoFinal && currentMes <= mesFinal)) {
-        const currentItem = historicoInflacao.find(item => item.ano === currentAno && item.mes === currentMes);
-        if (!currentItem) {
+    while (anoAtual < anoFim || (anoAtual === anoFim && mesAtual <= mesFim)) {
+        const itemAtual = historicoInflacao.find(item => item.ano === anoAtual && item.mes === mesAtual);
+        if (!itemAtual) {
             return {"erro":"Dados não encontrados para algum período"};
         }
         
-        resultado *= (1 + currentItem.ipca / 100); // é  a mesmo coisa que: resultado = valor * ((1 + (ipca1/100)) * (1 + (ipca2/100)) * (1 + (ipcaN/100)))
-        currentMes += 1;
+        resultado *= (1 + itemAtual.ipca / 100); 
+        mesAtual += 1;
 
-        if (currentMes > 12) {
-            currentMes = 1;
-            currentAno += 1;
+        if (mesAtual > 12) {
+            mesAtual = 1;
+            anoAtual += 1;
         }
     }
 
