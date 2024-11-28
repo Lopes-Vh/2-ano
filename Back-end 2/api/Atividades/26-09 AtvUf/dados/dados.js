@@ -133,7 +133,7 @@ const colecaoUf = [
         id: 27,
         uf: "TO",
         nome: "Tocantins"
-    }
+    }]
 
-]
-export default colecaoUf;
+
+    export default colecaoUf;
