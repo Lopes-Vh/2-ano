@@ -1,3 +1,5 @@
+// Define uma coleção de objetos, onde cada objeto representa uma UF (Unidade Federativa) do Brasil
+// Cada objeto contém um 'id' (número único para a UF), o código da UF ('uf') e o nome completo do estado
 const colecaoUf = [
     {
         id: 1,
@@ -136,5 +138,4 @@ const colecaoUf = [
     }]
 
     // Exporta a coleção de UFs para que possa ser utilizada em outros arquivos do projeto
-    //exports.colecaoUf = colecaoUf;
-    export default colecaoUf;
+    exports.colecaoUf = colecaoUf;
