@@ -1,19 +1,20 @@
-//import localFont from "next/font/local";
+import localFont from "next/font/local";
 import "./globals.css";
-
+import Header from "@/components/header";
 
 export const metadata = {
-  title: "Projeto",
-  description: "teste de aplicação simples",
+  title: "Nuh uh",
+  description: "Never dogfigth with a Sukhoi",
   charset: 'UTF-8',
   author: 'Lopes',
-  keywords: 'HTML, CSS, JavaScript, React, Next.js',
+  keywords: 'War Thunder',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-br">
       <body>
+        <Header/>
         {children}
       </body>
     </html>
