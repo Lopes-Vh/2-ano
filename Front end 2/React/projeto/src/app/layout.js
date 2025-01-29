@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/header";
+import Header from "@/Componentes/Header";
 
 export const metadata = {
   title: "Nuh uh",
