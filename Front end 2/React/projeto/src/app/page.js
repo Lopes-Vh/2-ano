@@ -14,64 +14,75 @@ export default function Home() {
     </div>
   );
 }*/
-
 'use client';
 import { useEffect, useState } from "react";
-export default function efeitos() {
+
+export default function Efeitos() {
   const [ufs, setUfs] = useState([]);
-  const [ufSelected, setUfSelected] = useState('');;
+  const [ufSelected, setUfSelected] = useState(''); 
   const [cities, setCities] = useState([]);
-  const [citySelected, setCitySelected] = useState('');;
+  const [citySelected, setCitySelected] = useState(''); 
+
   const getUfs = async () => {
     try {
       const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome');
       if (!response.ok) {
-        throw new Error('erro ao buscar dados: ' + response.statusText);
+        throw new Error('Erro ao buscar dados: ' + response.statusText);
       }
       const data = await response.json();
-      setCities(data);
+      setUfs(data);
       console.log(data);
     } catch (error) {
-      console.log('ocorreu algum erro: ' + error)
+      console.log('Ocorreu algum erro: ' + error);
     }
-  }
+  };
+
+  const getCities = async () => { 
+    if (ufSelected) {
+      try {
+        const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufSelected}/municipios`);
+        if (!response.ok) {
+          throw new Error('Erro ao buscar cidades: ' + response.statusText);
+        }
+        const data = await response.json();
+        setCities(data);
+      } catch (error) {
+        console.log('Ocorreu algum erro: ' + error);
+      }
+    }
+  };
+
   useEffect(() => {
     getUfs();
-  }, [])
+  }, []);
+
   useEffect(() => {
     getCities();
-  }, [ufSelected])
+  }, [ufSelected]);
+
   return (
     <div>
       <h1>
-        Efeitos Colaterais/ Use Effect
+        Efeitos Colaterais / Use Effect
       </h1>
-      {
-        <select on onChange={(ev) => { setUfselected(ev.target.value), SetcitySelected("") }}>
-          <option value="">selecione o estado</option>
-          {ufs.map((uf) => (
-            <option
-              value={uf.id}
-              key={uf.id}>
-              {`${uf.nome} - ${uf.sigla}`}
-            </option>
-          ))}
-        </select>
-      }
+      <select onChange={(ev) => { setUfSelected(ev.target.value); setCitySelected(""); }}>
+        <option value="">Selecione o estado</option>
+        {ufs.map((uf) => (
+          <option value={uf.id} key={uf.id}>
+            {`${uf.nome} - ${uf.sigla}`}
+          </option>
+        ))}
+      </select>
 
-      {
-        <select on onChange={(ev) => { SetcitySelected(ev.target.value) }}>
-          <option value="">selecione a cidade</option>
-          {ufs.map((uf) => (
-            <option
-              value={city.nome}
-              key={city.id}>
-              {`${city.nome}`}
-            </option>
-          ))}
-        </select>
-      }
+      <select onChange={(ev) => { setCitySelected(ev.target.value); }}>
+        <option value="">Selecione a cidade</option>
+        {cities.map((city) => ( 
+          <option value={city.id} key={city.id}> {}
+            {`${city.nome}`}
+          </option>
+        ))}
+      </select>
       {citySelected ? <p>{citySelected}</p> : <p>Aguardando</p>}
     </div>
-  )
+  );
 }
