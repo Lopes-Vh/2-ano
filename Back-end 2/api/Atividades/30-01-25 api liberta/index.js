@@ -5,11 +5,16 @@
 import express from 'express';
 import poll from './servicos/conexao.js'
 
-const app = express()
+const app = express();
 
 app.listen(9000, async () => {
     const data = new Date ();
-    const conexao = await poll.getConection()
-    console.log(conexao.threadId)
-    conexao.release()
+    
+    console.log('servidor iniciado em' + data);
+
+    const conexao = await poll.getConnection();
+
+    console.log(conexao.threadId);
+
+    conexao.release();
 })

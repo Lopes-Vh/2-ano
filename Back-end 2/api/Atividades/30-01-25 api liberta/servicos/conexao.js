@@ -1,12 +1,11 @@
 import mysql from 'mysql2/promise'
-import { deflate } from 'zlib'
 
-const poll = mysql.createPool({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'libertadores',
-    password: 'liberta123',
-    database: 'libertadores'
+    password: 'Liberta123',
+    database: 'libertadores',
 
-})
+});
 
-export default Pool;
+export default pool;
