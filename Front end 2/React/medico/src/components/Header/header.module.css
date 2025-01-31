@@ -7,7 +7,7 @@
 .wrapper {
     padding: 10px;
     box-sizing: border-box;
-    background-color: #021B33; /* Cor aplicada */
+    background-color: #021B33; 
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,12 +34,12 @@
     background-size: 1200%;
     -webkit-text-fill-color: transparent;
     animation: moveGradient 2s ease infinite;
-    color: #A9CFE5; /* Cor aplicada */
+    color: #A9CFE5; 
 }
 
 .button {
     background-color: transparent;
-    color: #F7F7F7; /* Cor aplicada */
+    color: #ffffff; 
     border: none;
     height: 60px;
     width: 60px;
@@ -52,7 +52,7 @@
 }
 
 .navOptions {
-    background-color: #12577B; /* Cor aplicada */
+    background-color: #12577B; 
     padding: 1%;
     display: flex;
     justify-content: space-around;
@@ -64,7 +64,7 @@
 }
 
 .navItem > * {
-    color: #F7F7F7; /* Cor aplicada */
+    color: #000000; 
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -76,7 +76,7 @@
 }
 
 .submenu li {
-    background-color: #A9CFE5; /* Cor aplicada */
+    background-color: #A9CFE5; 
     padding: 5px;
     margin: 3px 0;
     border-radius: 5px;
@@ -84,6 +84,6 @@
 
 .submenu li a {
     text-decoration: none;
-    color: #021B33; /* Cor aplicada */
+    color: #021B33; 
     font-weight: bold;
 }
