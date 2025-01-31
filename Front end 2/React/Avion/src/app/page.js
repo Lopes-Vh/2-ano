@@ -1,4 +1,4 @@
-import Header from "../components/header";
+import Header from "../components/header/index.js";
 import styles from "./page.module.css";
 import Image from "next/image";
 
