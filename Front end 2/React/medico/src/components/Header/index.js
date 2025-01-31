@@ -7,6 +7,18 @@ import Image from 'next/image';
 
 const Header = () => {
     const [menuVisible, setMenuVisible] = useState(false);
+    const [submenuVisible, setSubmenuVisible] = useState({
+        medico: false,
+        paciente: false,
+        consulta: false,
+    });
+
+    const toggleSubmenu = (item) => {
+        setSubmenuVisible((prev) => ({
+            ...prev,
+            [item]: !prev[item],
+        }));
+    };
 
     return (
         <header className={styles.header}>
@@ -62,14 +74,71 @@ const Header = () => {
                         exit={{ opacity: 0, y: -20 }}
                     >
                         <ul className={styles.navOptions}>
-                            <li className={styles.navItem} key="home">
-                                <Link href="/Medico">Medico</Link>
+                            <li className={styles.navItem} key="medico">
+                                <button onClick={() => toggleSubmenu('medico')}>
+                                    Médico
+                                </button>
+                                <AnimatePresence>
+                                    {submenuVisible.medico && (
+                                        <motion.ul
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className={styles.submenu}
+                                        >
+                                            <li>
+                                                <Link href="/medico/agenda">Agenda</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/medico/perfil">Perfil</Link>
+                                            </li>
+                                        </motion.ul>
+                                    )}
+                                </AnimatePresence>
                             </li>
-                            <li className={styles.navItem} key="sobre">
-                                <Link href="/paciente">Paciente</Link>
+                            <li className={styles.navItem} key="paciente">
+                                <button onClick={() => toggleSubmenu('paciente')}>
+                                    Paciente
+                                </button>
+                                <AnimatePresence>
+                                    {submenuVisible.paciente && (
+                                        <motion.ul
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className={styles.submenu}
+                                        >
+                                            <li>
+                                                <Link href="/paciente/historico">Histórico</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/paciente/dados">Dados</Link>
+                                            </li>
+                                        </motion.ul>
+                                    )}
+                                </AnimatePresence>
                             </li>
-                            <li className={styles.navItem} key="contato">
-                                <Link href="/consulta">Consulta</Link>
+                            <li className={styles.navItem} key="consulta">
+                                <button onClick={() => toggleSubmenu('consulta')}>
+                                    Consulta
+                                </button>
+                                <AnimatePresence>
+                                    {submenuVisible.consulta && (
+                                        <motion.ul
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            className={styles.submenu}
+                                        >
+                                            <li>
+                                                <Link href="/consulta/solicitar">Solicitar</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/consulta/status">Status</Link>
+                                            </li>
+                                        </motion.ul>
+                                    )}
+                                </AnimatePresence>
                             </li>
                         </ul>
                     </motion.nav>
