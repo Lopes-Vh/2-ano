@@ -6,11 +6,51 @@ import cors from 'cors';
 import express from 'express';
 import { retornaCampeonatos, retornaCampeonatoID } from './servicos/retornaCampeonato.js'
 import { cadastraCampeonatos } from './servicos/cadastraCampeonato.js'
-
-
+import { atualizaCampeonato } from './servicos/atualizaCampeonato_servico.js'
+import { atualizaCampeonatoparcial } from './servicos/atualizaCampeonato_servico.js'
 const app = express();
-app.use (cors())
+app.use (cors());
 app.use(express.json());
+
+app.path('/campeonatos/:id', async (req, res) => {
+  const { id } = req.params;
+  const { campeao, vice, ano } = req.body;
+  const camposAtualizados = {};
+
+  if (campeao) camposAtualizados.campeao = campeao;
+  if (vice) camposAtualizados.vice = vice; 
+  if (ano) camposAtualizados.ano = ano; 
+
+  if (Object.keys(camposAtualizados).length === 0) { 
+    res.status(400).send("nenhum campo valido preenchido");
+  } else {
+    const resultado = await atualizaCampeonatoparcial(id, camposAtualizados);
+    if (resultado.affectedRows > 0) {
+      res.status(202).send("registro atualizado com sucesso");
+    } else {
+      res.status(404).send('Registro não encontrado');
+    }
+  }
+});
+
+
+app.put('/campeonatos/:id', async (req,res) => {
+ const [id] = req.params;
+ const [campeao,vice,ano] = req.body; 
+
+ if (campeao == undefined || vice == undefined || ano == undefined) {
+  res.status(400).send('Alguem campo esta faltando ...')
+} else {
+  const resultado = await atualizaCampeonato(id, campeao, vice, ano);
+  if (resultado.affectedRows >0) {
+    res.status(202).send('registro atualizado com sucesso')
+  } else {
+    res.status(400).send('Registro Nao encontrado')
+  }
+ }
+
+
+})
 
 app.post('/campeonatos', async (req, res) => {
 
@@ -41,7 +81,7 @@ app.get('/campeonatos/:id', async (req, res) => {
     if (campeonatos.length >0 ){
         res.json(campeonatos);
     } else{
-        res.status(404).json({ mensagem: 'nenhum campeonato encontrado'});
+        res.status(404).json({ mensagem: 'nenhum campeonato encontrado!!!'});
     }
    
 })
