@@ -3,10 +3,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Atividade cabeçalho",
-  description: "Uma atividade proposta no AVA",
+  title: "Atividade",
   charset: 'UTF-8',
-  author: 'Nathan Teixeira Lopes',
+  author: 'Lopes',
   keywords: 'HTML, CSS, JavaScript, React, Next.js',
   
 };
