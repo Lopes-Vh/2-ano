@@ -2,9 +2,15 @@ import express from 'express';
 import cors from 'cors';
 import { validarNome, validarEmail, validarTelefone } from './validacao/valida.js';
 import { cadastrarUsuario, mostrarUsuarios } from './servicos/cadastro_servico.js';
+import { validarusuario } from './validacao';
 
 const app = express();
 const port = 9000;
+
+app.post('/usuarios', async (req, res) => {
+  const { nome, email} = req.body;
+  const (validarusuario.status)
+});
 
 
 app.use(cors());
