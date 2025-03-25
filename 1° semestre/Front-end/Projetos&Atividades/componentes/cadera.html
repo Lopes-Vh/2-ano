@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeira</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+    <div id="logo"><img src="img/Logo.png" alt=""></div>
+    <div style="display: flex; justify-content: space-between;">
+        <div id="VplacaM">
+            <iframe width="300vh" height="200vh"src="https://www.youtube.com/embed/cHBa4KA_nik?si=BtCUjbNsiS_NrI0A" titulo="Vídeo do YouTube" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen style="max-width: 100%;"></iframe>
+        </div>
+        <div id="imagem">
+            <img id="X670E" src="img/cadera.png" alt="Placa Mãe" style="height: 25vh; width: 20vw; object-fit: contain; max-width: 100%;">
+        </div>
+    </div>
+    <div class="especificacoes">
+        <h2>Especificaçoes Gerais</h2>
+        <hr>
+        <ul id="lista">
+            <li class="base">
+                <div class="titulo">Modelo</div>
+                <div class="conteudo">Rhino Fabric</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Linha</div>
+                <div class="conteudo">Elite Series</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Cores</div>
+                <div class="conteudo">Ashen, Cool Black, Graphite, Space Grey</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Revestimento</div>
+                <div class="conteudo">Tecido DT3 Techsoft™</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Estrutura</div>
+                <div class="conteudo">Aço 2.2mm</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Densidade do encosto</div>
+                <div class="conteudo">Espuma injetada 65 kg/m³</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Densidade do assento</div>
+                <div class="conteudo">Espuma injetada 65 kg/m³</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Braço</div>
+                <div class="conteudo">4D+</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Almofada de Cabeça</div>
+                <div class="conteudo">Espuma de fibra de silicone</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Almofada Lombar</div>
+                <div class="conteudo">Tamanho XL, Espuma injetada ergonômica</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Cilindro</div>
+                <div class="conteudo">Classe 4, 100mm</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Rodas</div>
+                <div class="conteudo">Nylon com acabamento em PU, 75mm</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Base</div>
+                <div class="conteudo">Alumínio</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Mecanismo</div>
+                <div class="conteudo">Frog XL</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Função rocking</div>
+                <div class="conteudo">12º (com trava em qualquer ângulo)</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Reclinação do encosto</div>
+                <div class="conteudo">168º + 12º de rocking</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Certificações</div>
+                <div class="conteudo">BIFMA, EN 1421, EN 4674-1, EN7548, BS 5852</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Peso líquido</div>
+                <div class="conteudo">30,00kg</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Peso bruto</div>
+                <div class="conteudo">35,00kg</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Dimensões da caixa</div>
+                <div class="conteudo">940 x 810 x 410 mm</div>
+            </li>            
+        </ul>
+    </div>
+    
+    <hr>
+    <a href="index.html"><button id="um">Voltar para a página principal</button></a>
+
+    <script>
+        const bases = document.querySelectorAll('.base');
+        bases.forEach(base => {
+            base.addEventListener('click', () => {
+                base.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

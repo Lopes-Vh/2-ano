@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fone headset</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+    <div id="logo"><img src="img/Logo.png" alt=""></div>
+    <div style="display: flex; justify-content: space-between;">
+        <div id="VplacaM">
+            <iframe width="300vh" height="200vh" src="https://www.youtube.com/embed/ZJx3vLAYRoI" title="Vídeo do YouTube" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen style="max-width: 100%;"></iframe>
+        </div>
+        <div id="imagem">
+            <img id="X670E" src="img/fone.png" alt="Placa Mãe" style="height: 25vh; width: 20vw; object-fit: contain; max-width: 100%;">
+        </div>
+    </div>
+    <div class="especificacoes">
+        <h2>Especificações</h2>
+        <hr>
+        <ul id="lista" >
+        
+            <li class="base">
+                <div class="titulo">Especificações principais</div><br>
+                <div class="conteudo">	
+                    <br>
+                    Microfone: 6 mm unidirecional, isolamento de voz<br>
+                    Encaixe na orelha: Sobre a orelha<br>
+                    Drivers: Ímã de neodímio de 40 mm<br>
+                    Alcance sem fio: 15 m<br>
+                    Duração da bateria em espera: ~ 20 meses<br>
+                    Frequência sem fio: 2.4 GHz<br>
+                    Tipo de pilha: Polímero de lítio, célula única<br>
+                </div>
+            </li>
+            <li class="base">
+                <div class="titulo">Especificações físicas</div>
+                <div class="conteudo">
+                    <br>
+                    Peso sem cabo: 380 g<br>
+                    Comprimento: 185 mm<br>
+                    Largura: 88.4 mm<br>
+                    Altura: 182.2 mm<br>
+                </div>
+            </li>
+            <li class="base">
+                <div class="titulo"><br>Especificações técnicas</div>
+                <div class="conteudo">
+                    <br>
+                    Princípio do transdutor: Ar livre<br>
+                    Frequência de resposta: 20 Hz a 20.000 Hz<br>
+                    SPL característico: 118 dB a 1 kHz<br>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+    <a href="index.html"><button id="um">Voltar para a página principal</button></a>
+
+    <script>
+        const bases = document.querySelectorAll('.base');
+        bases.forEach(base => {
+            base.addEventListener('click', () => {
+                base.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

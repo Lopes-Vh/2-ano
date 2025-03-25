@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>perifericos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css  ">
+    <meta name="author" content="Lopes">
+
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="container nav-container">
+            <div class="header-title"><h1><img src="img/Logo.png" width="200vw" height="200vh"></h1></div>
+            <div class="header-list">
+                <a href="#infos">Sobre</a>
+                <a href="#secaodois">Serviços</a>
+                <a href="#footer_content">Contato</a>
+            </div>
+            <div class="header-toggle" onclick="trocar()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main id="infos">
+        <p id="pid"><strong>Informacoes Ulteis</strong><br>
+            Bem vindo a Componentes LP, o maior site sobre perifericos na região de Vilhena<br><br>
+            Nossa equipe de especialistas está disponível para fornecer orientação personalizada, ajudando você a encontrar os periféricos ideais para suas necessidades tecnológicas.
+            Na Periféricos LP, a excelência é nossa norma. Atualizamos constantemente nosso inventário para garantir acesso às mais recentes inovações. Seja você um gamer, criador de conteúdo ou profissional, 
+            estamos aqui para ajudá-lo a alcançar seu potencial máximo.
+            <br><br>
+            Prepare-se para elevar sua experiência computacional com os periféricos de última geração da Periféricos LP. Junte-se a nós enquanto exploramos o futuro da computação juntos.<br><br>
+            
+        </p>
+    </main>
+    <div id="separacao">
+        <p>ㅤ</p>
+    </div>
+    <section id="secaodois">        
+        <header>
+            <strong>Peças de Ultima Geração</strong>        
+        </header>  
+        <ul>
+            <li style="list-style: none;"><a href="mouse.html"><button id="um">Logitech G502 HERO</button></a></li>
+            <li style="list-style: none;"><a href="teclado.html"><button id="um">Razer Huntsman V3 Pro</button></a></li>
+            <li style="list-style: none;"><a href="processador.html"><button id="um">DT3 Sports Rhino </button></a></li>
+            <li style="list-style: none;"><a href="Fone.html"><button id="um">Fone Astro A50</button></a></li>
+            <li style="list-style: none;"><a href="monitor.html"><button id="um">Monitor Alienware AW32</button></a></li>
+        </ul>        
+    </section>
+    <footer>
+        <div id="footer_content">
+            <nav id="footer_nav">
+                <div id="footer_contacts">
+                    <h1><img src="img/Logo.png" width="200vw" height="200vh"></h1>
+                    <p>perifericos Lp, fazendo seu sonho nascer</p>
+                </div>
+                <div id="footer_social_media">
+                    <a href="#" class="footer-link" id="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="footer-link" id="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="footer-link" id="whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </nav>
+            
+            </div>
+        </div>
+    </footer>
+    <script>
+        function trocar() {
+            document.querySelector('.header-list').classList.toggle('active');
+            document.querySelector('.header-toggle').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
