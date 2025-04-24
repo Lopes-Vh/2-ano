@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Alarme Visual - 4:50</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.5s;
+      font-family: sans-serif;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button id="iniciar">Iniciar contagem</button>
+
+  <script>
+    function calcularDiferencaParaAlvo(horaAlvo, minutoAlvo) {
+      const agora = new Date();
+      const alvo = new Date(agora);
+
+      alvo.setHours(horaAlvo);
+      alvo.setMinutes(minutoAlvo);
+      alvo.setSeconds(0);
+      alvo.setMilliseconds(0);
+
+      // Se já passou do horário hoje, agenda para amanhã
+      if (alvo <= agora) {
+        alvo.setDate(alvo.getDate() + 1);
+      }
+
+      return alvo - agora;
+    }
+
+    const botao = document.getElementById('iniciar');
+    botao.addEventListener('click', () => {
+      document.body.style.background = 'black';
+      botao.style.display = 'none';
+
+      const tempoParaAlarme = calcularDiferencaParaAlvo(4, 50); // 4:50 AM
+
+      setTimeout(() => {
+        document.body.style.background = 'white';
+      }, tempoParaAlarme);
+    });
+  </script>
+</body>
+</html>
