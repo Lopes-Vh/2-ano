@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+    <div id="logo"><img src="img/Logo.png" alt=""></div>
+    <div style="display: flex; justify-content: space-between;">
+        <div id="VplacaM">
+            <iframe width="300vh" height="200vh"src="https://www.youtube.com/embed/gRmOGmYQ2mo?si=vSvf45fxOrTzjg00" titulo="Vídeo do YouTube" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen style="max-width: 100%;"></iframe>
+        </div>
+        <div id="imagem">
+            <img id="g502" src="img/g502.png" alt="Mouse" style="height: 25vh; width: 20vw; object-fit: contain; max-width: 100%;">
+        </div>
+    </div>
+    <div class="especificacoes">
+        <h2>Especificações</h2>
+        <hr>
+        <ul id="lista" >
+        
+            <li class="base">
+                <div class="titulo">Dimençoes</div>
+                <div class="conteudo">Altura : 11,42 pol (290 mm)<br>
+                    Largura : 2,95 pol (75 mm)<br>
+                    Profundidade : 1,57 pol (40 mm)<br>
+                    Peso : 4,27 oz (121 g), apenas mouse<br>
+                    Pesos extras opcionais : até 18 g (0,18 x 0,13 oz (5x 3,6 g))<br>
+                    Comprimento do cabo : 6,89 pés (2,1 m)<br></div>
+            </li>
+            <li class="base">
+                <div class="titulo">TRACKING</div>
+                <div class="conteudo">Sensor : HERO<br>
+                    Resolução : 100 – 25.600 dpi<br>
+                    Suavização/aceleração/filtragem de zero<br>
+                    Aceleração máx .: >40 G 1Testado no Logitech G240 Gaming Mouse Pad<br>
+                    Velocidade máx .: >400 IPS 2Testado no Logitech G240 Gaming Mouse Pad<br></div>
+            </li>
+            <li class="base">
+                <div class="titulo">Durabilidade</div>
+                <div class="conteudo">250 quilômetros </div>
+            
+        </ul>
+    </div>
+    <hr>
+    <a href="index.html"><button id="um">Voltar para a página principal</button></a>
+
+    <script>
+        const bases = document.querySelectorAll('.base');
+        bases.forEach(base => {
+            base.addEventListener('click', () => {
+                base.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
+

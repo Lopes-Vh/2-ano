@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+    <div id="logo"><img src="img/Logo.png" alt=""></div>
+    <div style="display: flex; justify-content: space-between;">
+        <div id="VplacaM">
+            <iframe width="300vh" height="200vh"src="https://www.youtube.com/embed/puyBMRWW5nA?si=XfzSpbz4FUeewLBN" titulo="Vídeo do YouTube" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen style="max-width: 100%;"></iframe>
+        </div>
+        <div id="imagem">
+            <img id="Razer Huntsman V3 Pro" src="img/RazerHuntsmanV3Pro.png" alt="Teclado" style="height: 25vh; width: 20vw; object-fit: contain; max-width: 100%;">
+        </div>
+    </div>
+    <div class="especificacoes">
+        <h2>Especificações Adicionais</h2>
+        <hr>
+        <ul id="lista">
+            <li class="base">
+                <div class="titulo">Tamanho</div>
+                <div class="conteudo">Full size</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Conectividade</div>
+                <div class="conteudo">Cabo tipo C</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Descanso</div>
+                <div class="conteudo">Descanso Magnetico</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Passtrought</div>
+                <div class="conteudo">Não</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Tipo de switch</div>
+                <div class="conteudo">
+                    Switch óptico analógico Razer</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Keycaps</div>
+                <div class="conteudo">
+                    Keycaps doubleshot em PBT</div>
+            </li>
+            <li class="base">
+                <div class="titulo">Adicionais</div>
+                <div class="conteudo">
+                    Modo de ativação rápida<br>
+                    Acionamento ajustável<br>
+                    Comando analógico<br>
+                    Acionamento com duas etapas<br>
+                    Ajuste integrado rápido para acionamento e ativação rápida<br>
+                    Habilitado para Razer™ Synapse<br>
+                    Sobreposição de N teclas com efeito anti-ghosting<br>
+                    Taxa de polling de 1000 Hz<br>
+                    Bandeja superior em liga de alumínio escovado 5052<br>
+                    Descanso magnético firme para os pulsos em couro sintético<br>
+                    Teclas totalmente programáveis com gravação instantânea de macros<br>
+                    Modo de jogo</div>
+            </li>
+        </ul>
+    </div>    
+    
+    
+    
+    <hr>
+    <a href="index.html"><button id="um">Voltar para a página principal</button></a>
+
+    <script>
+        const bases = document.querySelectorAll('.base');
+        bases.forEach(base => {
+            base.addEventListener('click', () => {
+                base.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
